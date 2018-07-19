@@ -1,5 +1,4 @@
 from main import app
-from flask import render_template, request
 import ldap
 
 def authenticate(username, password):
