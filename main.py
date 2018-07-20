@@ -2,12 +2,14 @@ from flask import Flask, render_template, request, redirect, session, url_for
 # For LDAP-Authentication
 import auth
 
+app = Flask(__name__)
+
 @app.route('/')
 def home_page():
 
     # Checks cookie if user already have logged in
     if session.get('logged_in') == True:
-        return render_template('home.html')
+        return ('Logged in!')
     else:
         # Sends to login page if not logged in
         return redirect(url_for('login_page'))
@@ -35,3 +37,7 @@ def login_page():
     else:
         failed = ""
         return render_template('login.html', failed=failed)
+
+
+if __name__ == "__main__":
+    app.run()

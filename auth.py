@@ -14,5 +14,6 @@ def authenticate(username, password):
     except:
         ldap_client.unbind()
         return 'PASSWORD_ERROR'
+        
     ldap_client.unbind()
-    return 'OK
+    return 'OK'
